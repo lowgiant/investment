@@ -19,5 +19,13 @@ spring:
   sql:
     init:
       platform: h2
+  jpa:
+    properties:
+      format_sql: true
+      hibernate:
+        show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
 server:
   port: 8080
