@@ -1,4 +1,4 @@
-package com.fastcampus.investment.api;
+package com.fastcampus.investment.component.api;
 
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -46,15 +47,15 @@ class ApisTest {
                 .andExpect(jsonPath("$.data[0].totalInvestAmount", is(100000000)))
                 .andExpect(jsonPath("$.data[0].investedCount", is(0)))
                 .andExpect(jsonPath("$.data[0].investedAmount", is(0)))
-                .andExpect(jsonPath("$.data[0].startedAt", is(LocalDate.now().minusDays(1L))))
-                .andExpect(jsonPath("$.data[0].finishedAt", is(LocalDate.now().plusDays(1L))))
-                .andExpect(jsonPath("$.data[1].id", is(1)))
+                .andExpect(jsonPath("$.data[0].startedAt", is(LocalDate.now().minusDays(1L).toString())))
+                .andExpect(jsonPath("$.data[0].finishedAt", is(LocalDate.now().plusDays(1L).toString())))
+                .andExpect(jsonPath("$.data[1].id", is(4)))
                 .andExpect(jsonPath("$.data[1].title", is("TOBE-RICH of Warren Buffett")))
                 .andExpect(jsonPath("$.data[1].totalInvestAmount", is(600000000)))
                 .andExpect(jsonPath("$.data[1].investedCount", is(0)))
                 .andExpect(jsonPath("$.data[1].investedAmount", is(0)))
-                .andExpect(jsonPath("$.data[1].startedAt", is(LocalDate.now().minusDays(2L))))
-                .andExpect(jsonPath("$.data[1].finishedAt", is(LocalDate.now().plusDays(2L))))
+                .andExpect(jsonPath("$.data[1].startedAt", is(LocalDate.now().minusDays(2L).toString())))
+                .andExpect(jsonPath("$.data[1].finishedAt", is(LocalDate.now().plusDays(2L).toString())))
         ;
     }
 
