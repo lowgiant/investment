@@ -12,6 +12,14 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
       pool-name: H2_DB
+  jpa:
+    properties:
+      format_sql: true
+      hibernate:
+        show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
   mvc:
     hiddenmethod:
       filter:
